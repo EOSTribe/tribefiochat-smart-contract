@@ -13,6 +13,7 @@ void tribefiochat::addmessage(string from,
                      name author)
 {
     require_auth(author);
+    check(author.to_string() == "fiomsglogger", "user unauthorized to add message");
     check(!from.empty(), "from address field cannot be empty");
     check(!to.empty(), "to address field cannot be empty");
     check(!message.empty(), "message cannot be empty");
